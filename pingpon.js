@@ -54,7 +54,28 @@ function draw(){
   if (xBolinha + raio > XRaqueteOponente & yBolinha - raio < yRaqueteOponente + 90 & yBolinha + raio > yRaqueteOponente) {
     velocidadeXBolinha *= -1
     raquetada.play()}
-}
+
+   textSize(18)
+   textAlign(CENTER);
+  fill(color(255,0,233));
+  rect(150,10,40,20);
+  fill(255);
+  text(meusPontos, 170,26);
+  fill(meusPontos, 170,26);
+  rect(450,10,40,20);
+  fill(255);
+  text(pontosOponente,470,26);
+   
+  if(xBolinha>595){
+    meusPontos += 1;
+    ponto.play()
+  }
+  if(xBolinha< 10){
+    pontoOponente +=1;
+    ponto.play()
+   }
+  
+ }
 
 function movimentoBolinha(){
   circle(xBolinha,yBolinha,diametro);
@@ -69,4 +90,19 @@ function movimentoBolinha(){
 
 function raquete(xRaquete,yRaquete){
   rect(xRaquete,yRaquete,10,90 )
+
+
+}
+
+function npc(){
+  var nivel = 30
+  if(dificuldade ==="Fácil"){
+    nivel = 100;
+  }
+    if(dificuldade ==="Normal"){ 
+    nivel = 30
+  }
+    let velocidadeYRaqueteOponente =   yBolinha -
+        yRaqueteOponente - 10 /2;
+  yRaqueteOponente += velocidadeYRaqueteOponente - nivel; 
 }
